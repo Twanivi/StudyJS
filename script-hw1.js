@@ -65,9 +65,9 @@ if (result < 5){
 let numberFirst = prompt('Введите первое число:');
 let numberSec = prompt('Введите второе число:');
 if (numberFirst > numberSec && numberFirst != numberSec){
-    console.log(numberFirst);
+    console.log("Большее число: " + numberFirst);
 } else if(numberSec > numberFirst && numberSec != numberFirst) {
-    console.log(numberSec);
+    console.log("Большее число: " + numberSec);
 }
 
 
