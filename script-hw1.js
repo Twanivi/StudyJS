@@ -1,16 +1,17 @@
 // Задание 1
 // Запросите у пользователя его имя. Выведите в окошке (с помощью функции alert) фразу: Привет, Николай! (вместо Николай должно показываться имя, которое ввел пользователь)
 
-let name = 'Николай';
-let user = prompt('Ваше имя:');
-alert('Привет, ' + user);
+let name = prompt('Ваше имя:');
+
+alert(`Привет, ${name}`);
 
 
 // Задание 2
 // Запросите у пользователя число. Затем запросите степень, в которую нужно возвести это число. Выведите в консоль результат.
 
-let number = prompt('Введите число:');
-let rating = prompt('Введите степень:');
+let number = Number(prompt('Введите число:'));
+let rating = Number(prompt('Введите степень:'));
+
 console.log(number ** rating);
 
 
@@ -20,10 +21,11 @@ console.log(number ** rating);
 let me = 'my text';
 let someone = 'some text';
 let anotherone = 'another text';
-if ('my text' == 'some text'){
-    console.log('another text');
+
+if (me === someone){
+    me = 'another text';
 } else {
-    console.log('some text');
+    me = 'some text';
 }
 
 
@@ -35,10 +37,11 @@ if ('my text' == 'some text'){
 // - если больше нуля - используя оператор “присвоение”, переменную умножить на 10 (использовать краткую запись).
 
 let number = 7;
-if(number == 0){
-    number == 1;
+
+if(number === 0){
+    number = 1;
 } else if(number < 0){
-    number === 'less then zero';
+    number = 'less then zero';
 } else if(number > 0){
     number *= 10;
 }
@@ -49,12 +52,13 @@ if(number == 0){
 // (Не забывайте, что от пользователя мы всегда получаем строку).
 // Создайте переменную-результат и присвойте ей значение: если введенное пользователем число меньше 5, то результат будет '0', если больше -  '1'. Выведите результат в консоль.
 
-let num = prompt('Введите число:');
-let result = Number(num);
-if (result < 5){
-    console.log('0');
-} else if(result > 5){
-    console.log('1');
+let num = Number(prompt('Введите число:'));
+let result = num;
+
+if (num < 5){
+    result = 0;
+} else if(num > 5){
+    result = 1;
 }
 
 
@@ -62,24 +66,32 @@ if (result < 5){
 // Попросить пользователя ввести одно число, следом - второе число. Вывести в консоль максимальное из чисел (наибольшее) с текстом: Большее число: 7 (вместо 7 будет максимальное число из введенных пользователем).
 // * предусмотреть вариант ввода одинаковых чисел
 
-let numberFirst = prompt('Введите первое число:');
-let numberSec = prompt('Введите второе число:');
-if (numberFirst > numberSec && numberFirst != numberSec){
-    console.log("Большее число: " + numberFirst);
-} else if(numberSec > numberFirst && numberSec != numberFirst) {
-    console.log("Большее число: " + numberSec);
-}
+let numFirst = Number(prompt('Введите первое число:'));
+let numSec = Number(prompt('Введите второе число:'));
+
+if (numFirst > numSec && numFirst != numSec){
+    console.log(`Большее число: ${numFirst}`);
+} else if(numSec > numFirst && numSec != numFirst) {
+    console.log(`Большее число: ${numSec}`);
+} else if (numFirst === numSec) {              
+    console.log('Числа равны');                 
+}  
+
+// Комментарий: здесь можно и просто применить? else{
+//                                                console.log('Числа равны');
+//                                              }
 
 
 // Задание 8
 // Определить, является ли введенное пользователем число num1 кратным введенному числу num2. Обе переменные запрашиваем у пользователя, ответ выводим в консоль.
 
-let num1 = prompt('Введите первое число:');
-let num2 = prompt('Введите второе число:');
-if (num1 % num2) {
-    console.log(num1 + ' не кратно ' + num2);
+let num1 = Number(prompt('Введите первое число:'));
+let num2 = Number(prompt('Введите второе число:'));
+
+if (num1 % num2 === 0) {
+    console.log(`${num1} кратно ${num2}`);
 } else {
-    console.log(num1 + ' кратно ' + num2);
+    console.log(`${num1} не кратно ${num2}`);
 }
 
 
@@ -87,13 +99,13 @@ if (num1 % num2) {
 // Запросить у пользователя средний балл, записать в переменную.
 // Если средний балл 1-4 - вывести в консоль "Двоечник, иди учись!", если 5-8 - "Неплохо, но давай еще поднажмем!", если 9-10 - "Ого, да ты настоящий отличник!" (можно другие фразы - по желанию).
 
-let ball = prompt('Введите средний бал:');
-let result = Number(ball);
-if (result >= 1 && result <= 4) {
+let ball = Number(prompt('Введите средний бал:'));
+
+if (ball >= 1 && ball <= 4) {
     console.log('Двоечник, иди учись!');
-} else if (result >= 5 && result <=8) {
+} else if (ball <=8) {
     console.log('Неплохо, но давай ещё поднажмём!');
-} else if (result >= 9 && result <= 10) {
+} else if (ball <= 10) {
     console.log('Ого, да ты настоящий отличник!');
 }
 
@@ -108,10 +120,9 @@ if (result >= 1 && result <= 4) {
 // - 75, если балл за экзамен более 50 и количество проектов не менее 2.
 // - 0 во всех других случаях.
 
-let ballExam = prompt('Балл за экзамен:');
-let projectFinish = prompt('Количество выполненных проектов:');
-let ball = Number(ballExam);
-let project = Number(projectFinish);
+let ball = Number(prompt('Балл за экзамен (0-100):'));
+let project = Number(prompt('Количество выполненных проектов (0 и более):'));
+
 if (ball >= 90 && project >= 10){
     console.log('100');
 } else if (ball >= 75 && project >= 5){
@@ -127,15 +138,14 @@ if (ball >= 90 && project >= 10){
 // День аренды автомобиля стоит $40. При аренде на 7 или больше дней вы получаете общую итоговую скидку $50. Если вы арендуете авто на 3 или более дней, ваша общая скидка составит $20.
 // Количество дней, на которые нужно арендовать авто, запрашиваются с помощью prompt. Напишите программу, рассчитывающую общую стоимость аренды на запрашиваемое количество дней.
 
-let dayOrder = prompt('Количество дней аренды автомобиля:');
-let day = Number(dayOrder);
-const dayPay = 40;
-const sale7 = 50;
-const sale3 = 20;
-if (day >= 7){
-    alert(day = day * 40 - 50 + '$');
-} else if (day >= 3){
-    alert(day = day * 40 - 20 + '$');
-} else {
-    alert(day = day * 40 + '$');
+let dayOrder = Number(prompt('Количество дней аренды автомобиля:'));
+let dayPay = 40;
+let discount = 0;
+
+if (dayOrder >= 7){
+    discount = 50;
+} else if (dayOrder >= 3){
+    discount = 20;
 }
+
+dayPay = dayPay * dayOrder - discount;
