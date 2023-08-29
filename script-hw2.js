@@ -17,9 +17,13 @@ let access = country == 'Sweden' ? 'true' : 'false';
 // Создать переменную и записать в нее число, например 10.
 // 10 раз увеличить значение этой переменной на 1. Итоговый результат вывести в консоль.
 
-for(let i = 10; i < 21; i++){
-    console.log(i);
+let num = 10;
+
+for(let i = 0; i < 10; i++){
+    number++
 }
+
+console.log(num);
 
 
 // Задание 3
@@ -28,10 +32,17 @@ for(let i = 10; i < 21; i++){
 // - проверить, равно ли это число 10. Если равно, вывести в консоль "Равно 10". Иначе вывести "Не равно 10"
 // В итоге должно получиться 5 запросов и 5 результатов в консоли.
 
-let a = Number(prompt('Введите число'));
 
-for (let i = 0; i <= a; i += 2){
-    let a = i === 10 ? console.log('Равно 10') : console.log('Не равно 10');
+
+for (let i = 0; i < 10; i += 2){
+
+    let a = Number(prompt('Введите число'));
+
+    if(a === 10){
+        console.log('Равно 10'); 
+    } else {
+        console.log('Не равно 10');
+    }
 }
 
 
@@ -39,11 +50,9 @@ for (let i = 0; i <= a; i += 2){
 // Вывести в консоль квадраты чисел от 0 до 100 (не включая 100) - т.е. вывести числа 0, 1, 4, 9, 16...
 // ** Задавать количество чисел, которые нужно вывести, при помощи функции prompt.
 
-let a = Number(prompt('Введите число:'));
 
-i = 0;
-
-for(let i = a; i < 100; i++){
+for (let i = a; i < 100; i++){
+    let a = Number(prompt('Введите число:'));
     console.log(a = i ** 2);
 }
 
@@ -52,7 +61,7 @@ for(let i = a; i < 100; i++){
 // Напишите программу, которая выводит в консоль числа от 1 до 100.
 // При этом вместо чисел, кратных трем, программа должна выводить слово «Fizz», а вместо чисел, кратных пяти, — слово «Buzz». Если число кратно и 3, и 5, то программа должна выводить слово «FizzBuzz»
 
-for(let i = 1; i <= 100; i++){
+for (let i = 1; i <= 100; i++){
     if (i % 3 === 0 && i % 5 === 0){
         console.log('FizzBuzz');
     } else if (i % 5 === 0){
@@ -73,7 +82,7 @@ for(let i = 1; i <= 100; i++){
 
 let i = 0;
 
-while(i < 3){
+while (i < 3){
     alert(`number ${i}!`);
     i += 1;
 }
@@ -82,9 +91,8 @@ while(i < 3){
 // Переписать задание 4 в виде функции. Т.е. описать функцию, которая выводит квадраты чисел из заданного диапазона (диапазон будет попадать в функцию как аргументы - min и max).
 
 function numSquare (min, max){
-let i = 0;
 
-for(i = min; i < max; i++){
+for (let i = min; i < max; i++){
     console.log(min = i ** 2);
 }
 }
@@ -102,18 +110,18 @@ numSquare(10, 100);
 // - Каждый цвет - 3 числа, каждое число лежит в диапазоне от 0 до 255.
 // - Одна функция может вызывать другую функцию
 
-function getRandomRGB (num1, num2, num3){
-return `rgb(${num1}, ${num2}, ${num3})`;
+function getRandomRGB (){
+return `rgb(${getRandomInteger(0, 255)}, ${getRandomInteger(0, 255)}, ${getRandomInteger(0, 255)})`;
 }
-
-getRandomRGB(getRandomInteger, getRandomInteger, getRandomInteger);
 
 function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    getRandomInteger(0, 225)
-//  так и не поняла как написать эти функции
+    getRandomInteger(0, 255)
+
+    getRandomRGB()
+
 
 
 // Задание 9
@@ -143,7 +151,7 @@ isInteger(5);
 // День аренды автомобиля стоит $40. При аренде на 7 или больше дней вы получаете общую итоговую скидку $50. Если вы арендуете авто на 3 или более дней, ваша общая скидка составит $20.
 
 function calcPrice(dayOrder) {
-let dayPay = 40;
+const dayPay = 40;
 let discount = 0;
 
   if (dayOrder >= 7) {
@@ -152,8 +160,8 @@ let discount = 0;
     discount = 20;
   }
 
- console.log(dayPay * dayOrder - discount);
+ return dayPay * dayOrder - discount;
 }
 
-calcPrice(7);
- 
+console.log(calcPrice(7));
+
