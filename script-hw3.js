@@ -82,22 +82,26 @@ for (let i = 0; i < numbers.length; i++){
 
 console.log(sum2);
 
-// 4) 5)
+// 4)
 let max = 42;
-let index = 0;
 
 for (let i = 0; i < numbers.length; i++){
     if (max < numbers[i]) {
         max = numbers[i];
-        index = [i];
     }
     
 }   
 
 console.log(max);
 
-console.log(index);
 
+// 5)
+for (let i = 0; i < numbers.length; i++){
+    if (numbers[i] === max) {
+       console.log([i]); 
+    }
+    
+}  
 
 
 // Задание 7
