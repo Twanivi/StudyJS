@@ -5,9 +5,9 @@
 let n = 105;
 
 if (n >= 0 && n <= 100){
-   let n = 'true';
+    true;
 } else {
-    let n = 'false';
+    false;
 }
 
 
@@ -83,7 +83,7 @@ for (let i = 0; i < numbers.length; i++){
 console.log(sum2);
 
 // 4)
-let max = 42;
+let max = number[0];
 
 for (let i = 0; i < numbers.length; i++){
     if (max < numbers[i]) {
@@ -96,8 +96,9 @@ console.log(max);
 
 
 // 5)
+
 for (let i = 0; i < numbers.length; i++){
-    if (numbers[i] === max) {
+    if (max === numbers[i]) {
        console.log([i]); 
     }
     
