@@ -88,12 +88,8 @@ let newVegetables = [];
 
 
 for (let key in vegetables){
-    newVegetables.push({word: vegetables[key]});
+    newVegetables.push({word: vegetables[key], length: vegetables[key].length});
     }
-
-for (let i = 0; i < vegetables.length; i++){
-    newVegetables.push({length: vegetables[i].length});
-}
 
 console.log(newVegetables);
 
