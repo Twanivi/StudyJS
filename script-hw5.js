@@ -45,7 +45,8 @@ function square(a) {
     }
 }
 
-
+square(10) // 100
+square()
 
 // Задание 3
 // Создать функцию "угадай число". Она принимает число от 1 до 10 (обязательно проверить, что число не больше 10 и не меньше 0). Генерирует рандомное число от 1 до 10 и сравнивает с заданным числом.
@@ -79,10 +80,9 @@ function getRandomInteger(min, max) {
 
 const array = [25, 30, 44, 10];
 
-const copyArr = array.map(arr => arr);
+const copyArr = (array) => array.map(arr => arr);
 
-console.log(copyArr);
-
+console.log(copyArr(array));
 
 
 
@@ -91,9 +91,9 @@ console.log(copyArr);
 
 const names = ['Oksana', 'Ruslan', 'Irina']
 
-const newNames = names.map(item => 'Hello, ' + item)
+const newNames = (names) => names.map(item => 'Hello, ' + item)
 
-console.log(newNames);
+console.log(newNames(names));
 
 
 
@@ -103,9 +103,9 @@ console.log(newNames);
 
 const users = [{name: 'Aleks', age: 20}, {name: 'Sara', age: 25}, {name: 'Victor', age: 18}];
 
-const names = users.map(item => item.name)
+const names = (users) => users.map(item => item.name)
 
-console.log(names);
+console.log(names(users));
 
 
 
@@ -141,11 +141,11 @@ console.log(sumObjectValues(objectWithNumbers));
 // Напишите функцию ucFirst(str), возвращающую строку str с заглавным первым символом.
 // Вам понадобятся методы строк.
 
-let first = 'str';
+const first = 'str';
 
-let ucFirst = first[0].toUpperCase() + first.slice(1, 3);
+const ucFirst = (first) => first[0].toUpperCase() + first.slice(1, 3);
 
-console.log(ucFirst);
+console.log(ucFirst(first));
 
 
 
