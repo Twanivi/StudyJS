@@ -8,21 +8,21 @@
 // sum(1); // введите два параметра
 // sum(); // введите два параметра
 
-// const sum = (a, b) => {
-//     if(a === undefined || b === undefined){
-//         console.error('Введите два параметра');
-//     } else if(typeof a !== 'number' || typeof b !== 'number'){
-//         console.error('Введенные данные не являются числами');
-//     } else {
-//     console.log(a + b);
-//     }
-// }
+const sum = (a, b) => {
+    if(a === undefined || b === undefined){
+        console.error('Введите два параметра');
+    } else if(typeof a !== 'number' || typeof b !== 'number'){
+        console.error('Введенные данные не являются числами');
+    } else {
+    console.log(a + b);
+    }
+}
 
-// sum(2,4); 
-// sum('d',4); 
-// sum(1, [2]); 
-// sum(1); 
-// sum(); 
+sum(2,4); 
+sum('d',4); 
+sum(1, [2]); 
+sum(1); 
+sum(); 
 
 
 
@@ -37,13 +37,13 @@
 // ДО: NaN
 // ПОСЛЕ: Uncaught Error: Функция "square" не может быть вызвана без аргумента
 
-// function square(a) {
-//     if(a === undefined){
-//         console.error('Функция "square" не может быть вызвана без аргумента');
-//     } else {
-//         console.log(a * a);
-//     }
-// }
+function square(a) {
+    if(a === undefined){
+        console.error('Функция "square" не может быть вызвана без аргумента');
+    } else {
+        console.log(a * a);
+    }
+}
 
 
 
@@ -53,26 +53,23 @@
 // Функция создания случайного числа уже была ранее в материалах, в задаче по созданию случайного цвета.
 // Написать функцию в стрелочном синтаксисе.
 
-const guessNum = a => {
-    if(a > 0 && a <= 10){
-        return getRandomInteger(1, 10);
-       
-    }
-    
-    if (a === getRandomInteger){
+const guessNum = number => {
+    if(number > 0 && number <= 10){
+        const randomNumber = getRandomInteger(1, 10);
+               
+    if (number === randomNumber){
         return `Вы выиграли`;
     } else {
-        return `Вы не угадали, ваше число - ${guessNum},  а выпало число ${getRandomInteger}`;
+        return `Вы не угадали, ваше число - ${number},  а выпало число ${randomNumber}`;
     }
 }
+}
+
+console.log(guessNum(9));
 
 function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
     }
-
-guessNum();
-
-console.log(guessNum);
 
 
 
@@ -80,27 +77,23 @@ console.log(guessNum);
 // Задание 4
 // Напишите функцию copyArr(arr), которая копирует массив, не изменяя оригинал. Используйте подходящий метод массива - forEach или map.
 
-// const array = [25, 30, 44, 10];
+const array = [25, 30, 44, 10];
 
-// const copyArr = array.map(arr => {
-//     return arr;
-// });
+const copyArr = array.map(arr => arr);
 
-// console.log(copyArr);
+console.log(copyArr);
 
 
 
 
 // Задание 5
-// Напишите функцию, которая принимает массив имен и возвращает новый массив, в котором каждое имя будет иметь приставку "Hello, "
+// // Напишите функцию, которая принимает массив имен и возвращает новый массив, в котором каждое имя будет иметь приставку "Hello, "
 
-// const names = ['Oksana', 'Ruslan', 'Irina']
+const names = ['Oksana', 'Ruslan', 'Irina']
 
-// const newNames = names.map(item => {
-//     return 'Hello, ' + item;
-// })
+const newNames = names.map(item => 'Hello, ' + item)
 
-// console.log(newNames);
+console.log(newNames);
 
 
 
@@ -108,13 +101,11 @@ console.log(guessNum);
 // Задание 6
 // Напишите функцию, которая принимает массив объектов пользователей и возвращает новый массив, содержащий только их имена.
 
-// const users = [{name: 'Aleks', age: 20}, {name: 'Sara', age: 25}, {name: 'Victor', age: 18}];
+const users = [{name: 'Aleks', age: 20}, {name: 'Sara', age: 25}, {name: 'Victor', age: 18}];
 
-// const names = users.map(item => {
-//    return item.name; 
-// })
+const names = users.map(item => item.name)
 
-// console.log(names);
+console.log(names);
 
 
 
@@ -128,40 +119,33 @@ console.log(guessNum);
 //   d: 12,
 // }
 
-// const objectWithNumbers = {
-//     a: 10,
-//     b: 20,
-//     c: 'string',
-//     d: 12,
-// }
+const objectWithNumbers = {
+    a: 10,
+    b: 20,
+    c: 'string',
+    d: 12,
+}
 
-// const sumObjectValues = (objectWithNumbers) => {
-//     objectWithNumbers.forEach(item => {
-//         if(item === 'number'){
-//             Object.values(item)++;
-//         }
-//         return item;
-//     })
-// }
+const sumObjectValues = obj => {
+    const numArray = Object.values(obj).filter(item => typeof item === 'number');
 
-// sumObjectValues(objectWithNumbers)
-// console.log(sumObjectValues)
-// // не получается
+    return numArray.reduce((acc, item) => acc + item, 0);
+}
+
+console.log(sumObjectValues(objectWithNumbers));
 
 
    
-
 
 // Задание 8
 // Напишите функцию ucFirst(str), возвращающую строку str с заглавным первым символом.
 // Вам понадобятся методы строк.
 
-// let first = 'str';
+let first = 'str';
 
-// let ucFirst = first[0].toUpperCase() + first.slice(1, 3);
+let ucFirst = first[0].toUpperCase() + first.slice(1, 3);
 
-
-// console.log(ucFirst);
+console.log(ucFirst);
 
 
 
@@ -170,14 +154,12 @@ console.log(guessNum);
 // Напишите функцию checkSpam(str), возвращающую true, если str содержит 'badWord' или 'XXX', а иначе false.
 // Функция должна быть нечувствительна к регистру.
 
-// let spam = 'str';
-// let string = 'badWord';
-// let string2 = 'XXX';
+const string1 = 'badWord';
+const string2 = 'XXX';
 
-// spam.toLowerCase();
-// string.toLowerCase();
-// string2.toLowerCase();
+const checkSpam = string => string.toLowerCase().includes(string1.toLowerCase()) || string.toLowerCase().includes(string2.toLowerCase()) ? true : false;
 
-// let checkSpam = spam.includes(string) || spam.includes(string2);   
-
-// console.log(checkSpam);
+console.log(checkSpam('Hello'));
+console.log(checkSpam('Hello XXX'));
+console.log(checkSpam('Hello XxX'));
+console.log(checkSpam('Hello badWord'));
