@@ -46,7 +46,15 @@ const readNameStation = (stations) => {
         })
 }
 
+stations.forEach(item => {
+    const code = item.slice(0,3);
+    const number = item.indexOf(';');
+    const station = item.slice(number +1)
+})
+
 readNameStation(stations);
+
+
 
 
 
@@ -61,14 +69,16 @@ readNameStation(stations);
 
 let strings = ["кришна", "кришна", "харе", "харе", "харе", "харе", "кришна", "кришна", ":-O"];
 
-const unique = (strings) => {
-    const getUniqueString = strings.find(item => item === "кришна") + strings.find(item => item === "харе") + strings.find(item => item === ":-O");
-    
-    return getUniqueString;
-}
+const uniqueStrings = [];
 
-console.log(unique(strings));
-// ??????????????????????????
+strings.forEach(item => {
+    if(!uniqueStrings.includes(item)){ 
+        uniqueStrings.push(item);
+    }
+})
+
+console.log(uniqueStrings);
+
 
 
 
@@ -145,9 +155,10 @@ console.log(moreThreeLetters(words));
 
 const array = [ [14, 45], [1], ['a', 'c', 'd'] ];
 
-const sortedArray = (array) => array.sort((a, b) => a[0] - b[0]);
+const sortedArray = (array) => array.sort((a, b) => a.length - b.length);
 
 console.log(sortedArray(array));
+
 
 
 
@@ -164,27 +175,20 @@ console.log(sortedArray(array));
 
 
 
-const getAverageHumanAg = (catAges) => {
-catAges.map(item => {
-
-    let humanAg = 0;
-
-    if (item <= 2){
-        humanAg = item * 10;
-    } if (item > 2) {
-        humanAg = item * 7; 
-    }
+const getAverageHumanAg = catAges => {
+    const humanAges = catAges.map(item => item <= 2 ? item * 10 : item * 7);
     
-})
-
-catAges.filter(item => humanAg >= 18);
-console.log(catAges);
-
-    catAges.reduce((acc, item) => (acc + item) / (item.lenght - 1), 0)
+    const bigCats = humanAges.filter(item => item >= 18);
+    
+    const sum = bigCats.reduce((acc, item) => acc + item, 0);
+    
+    return (sum / bigCats.length).toFixed();
 }
 
 console.log(getAverageHumanAg([7 , 3, 2, 4, 1, 15, 8, 1, 9, 2]));
-// ????????????????????????????
+console.log(getAverageHumanAg([1, 16, 12, 4, 5, 1, 3, 11, 7, 2]));
+
+
 
 
 
